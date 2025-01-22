@@ -108,6 +108,6 @@ gsap.from(".page4 h1", {
     // markers: true,
     start: "top 70%",
     end: "top 70%",
-    scrub: 3,
+    scrub: 5,
   },
 });
