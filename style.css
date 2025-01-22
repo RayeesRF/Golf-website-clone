@@ -1,0 +1,435 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Montserrat", serif;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+*::selection {
+  background-color: white;
+  color: #95c11e;
+}
+.navbar {
+  height: 130px;
+  width: 100%;
+  padding: 0 120px;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  position: fixed;
+  z-index: 99;
+}
+.navbar img {
+  width: 70px;
+}
+.navbar h4 {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+/* manual cursor here */
+#cursor {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 99;
+}
+#cursorBlur {
+  width: 300px;
+  height: 300px;
+  background-color: #96c11e36;
+  border-radius: 50%;
+  position: fixed;
+  filter: blur(40px);
+  z-index: 9;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  position: fixed;
+}
+/* main section here */
+.main {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page1 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+}
+.page1 h1 {
+  font-size: 80px;
+  font-weight: 900;
+  position: relative;
+}
+.page1 h1::before {
+  content: "EAT . DRINK . PLAY";
+  position: absolute;
+  color: black;
+  top: -3px;
+  left: -3px;
+  -webkit-text-stroke: 2px #95c11e;
+  z-index: -1;
+}
+.page1 h2 {
+  font-size: 25px;
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.page1 p {
+  font-size: 15px;
+  font-weight: 500;
+  width: 40%;
+  text-align: center;
+}
+.page1 #arrow {
+  height: 150px;
+  width: 150px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #95c11e;
+  border-radius: 50%;
+  position: absolute;
+  left: 1%;
+  bottom: 1%;
+  transition: all ease 0.5s;
+}
+.page1 #arrow:hover {
+  scale: 0.5;
+  background-color: #95c11e;
+}
+#arrow i {
+  font-size: 40px;
+}
+
+/* page 2 css here */
+.page2 {
+  min-height: 100vh;
+  width: 100%;
+  z-index: 10;
+}
+/* Scroller here */
+.scroller {
+  white-space: nowrap;
+  position: relative;
+  z-index: 10;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.scroller-in {
+  display: inline-block;
+  white-space: nowrap;
+  animation-name: scroll;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.scroller h4 {
+  display: inline-block;
+  font-size: 80px;
+  font-weight: 800;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-right: 10px;
+  transition: all linear 0.5s;
+  color: transparent;
+  -webkit-text-stroke: 2px #95c11e;
+}
+.scroller h4:hover {
+  color: #95c11e;
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* About us CSS here */
+.about-us {
+  margin-top: 100px;
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 50px;
+  position: relative;
+}
+.about-us img {
+  height: 220px;
+  width: 220px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.about-us-in {
+  width: 48%;
+  text-align: center;
+}
+.about-us-in h3 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.about-us-in p {
+  font-size: 16px;
+  line-height: 26px;
+}
+/* cards css here */
+.card-container {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 0 100px;
+  position: relative;
+  z-index: 10;
+  margin-top: 30px;
+}
+.card {
+  height: 70%;
+  width: 25%;
+  background-color: blue;
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: all ease 0.6s;
+}
+#card1 {
+  background-image: url(card1.avif);
+}
+#card2 {
+  background-image: url(card2.webp);
+}
+#card3 {
+  background-image: url(card3.avif);
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #95c11e;
+  padding: 0 15px;
+  padding-top: 100px;
+  opacity: 0;
+  transition: all ease 0.6s;
+}
+.card .overlay:hover {
+  opacity: 1;
+}
+.card:hover {
+  transform: rotate3d(-1, 1, 0, 20deg);
+}
+.overlay h4 {
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.overlay p {
+  color: black;
+  font-size: medium;
+}
+
+/* signup css here */
+#green-div {
+  height: 25vh;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 10px;
+  margin: 0 auto;
+  background: linear-gradient(to left bottom, #119f3a, #ace022);
+}
+#green-div h4 {
+  width: 45%;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 40px;
+  color: black;
+}
+#green-div img {
+  height: 100%;
+  width: 16%;
+  object-fit: cover;
+}
+
+#page3 {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#page3 > p {
+  font-size: 22px;
+  font-weight: 700;
+  width: 56%;
+  line-height: 35px;
+  text-align: center;
+}
+#page3 img {
+  position: absolute;
+  height: 60px;
+}
+#page3 #colon1 {
+  top: 25%;
+  left: 15%;
+}
+#page3 #colon2 {
+  bottom: 25%;
+  right: 15%;
+}
+/* page4 css here */
+.page4 {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  position: relative;
+}
+.elem {
+  height: 55%;
+  width: 25%;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+}
+.elem h2 {
+  height: 100%;
+  width: 100%;
+  background-color: #95c11e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: black;
+  transition: all ease 0.5s;
+  position: absolute;
+  z-index: 10;
+}
+.elem img {
+  height: 100%;
+  width: 100%;
+  scale: 1.3;
+  transition: all ease 0.5s;
+  object-fit: cover;
+}
+.elem:hover h2 {
+  color: white;
+  background-color: transparent;
+}
+.elem:hover img {
+  scale: 1;
+}
+.page4 h1 {
+  font-size: 85px;
+  position: absolute;
+  top: 3%;
+  font-weight: 800;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
+  -webkit-text-stroke: 2px #fff;
+}
+.footer {
+  height: 40vh;
+  width: 100%;
+  background: linear-gradient(to left bottom, #119f3a 0%, #a3d421 80%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 150px;
+  padding: 0 120px;
+}
+/* footer css here */
+#footer {
+  height: 35vh;
+  width: 100%;
+  background: linear-gradient(to left bottom, #119f39a6 0%, #a4d421bb 80%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 6.5vw;
+  padding: 0 100px;
+}
+#footer > img {
+  position: absolute;
+  left: 0;
+  height: 60%;
+  z-index: 0;
+}
+#f1 img {
+  height: 90px;
+}
+#f1,
+#f2,
+#f3,
+#f4 {
+  width: fit-content;
+  position: relative;
+  z-index: 99;
+  /* background-color: red; */
+}
+#f2 h3 {
+  font-size: 18px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+#f3 h3 {
+  font-size: 18px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+#f4 h4 {
+  font-size: 18px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
